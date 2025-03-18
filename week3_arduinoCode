@@ -1,0 +1,47 @@
+아두이노 코드이고 3주차 분석해봅시다. 
+여기서 pinmode란 아두이노의 pin값에 대한 출력을 설정하겠다는 의미이다. 
+influxdata를 사용하려면 파워쉘을 켜둬야한다.  influxDB가 파워쉘을 통해 데이터베이스를 실시간으로 수집, 가공하는 임무를 하는 것이다.
+>>> 파워쉘에서 사용한 라인 <<<
+PS C:\> cd '.\Program Files\InfluxData\influxdb\'
+PS C:\Program Files\InfluxData\influxdb> .\influxd.exe
+
+influxDB설치후에 exe파일을 파워쉘에 켜서 사용하는 것이다. 
+
+
+
+API token 
+it will be used when i make python project. 
+
+jrJy3HDeEQn0GdOzmCZ4glkM2kvGZFI1VyioXpX6WL6vvhEFPh2oGxEwPYVaj4mKC03RpB3-CGu-nQZqIGvCnw==
+
+
+int Vo = A0; // device의 out port
+int V_led = 12;// device의 12번 port 변수로 선언
+
+float Vo_value = 0;
+float Voltage = 0;  
+float dustDensity = 0;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(V_led, OUTPUT); 
+  pinMode(Vo, INPUT);
+}
+
+void loop() {
+  digitalWrite(V_led, LOW);
+  delayMicroseconds(280);
+  Vo_value = analogRead(Vo);
+  delayMicroseconds(40);
+  digitalWrite(V_led, HIGH);
+  delayMicroseconds(9680);
+
+  Voltage = Vo_value*5.0 / 1023.0;
+  dustDensity = (Voltage - 0.5) / 0.005;
+
+  Serial.print("dust=");
+  Serial.println(dustDensity);
+
+  delay(1000);
+
+}
