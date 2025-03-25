@@ -26,9 +26,9 @@ void loop(){
 
   duration = pulseIn(ECHO, HIGH);
   distance = duration / 58.2;
-   Serial.print("\nDistance : ");
-   Serial.print(distance); // 개행 X
-   Serial.println(" CM" );
+   lcd.print("\nDistance : ");
+   lcd.print(distance); // 개행 X
+   lcd.println(" CM" );
    delay(1000);
    
   for(int position = 0; position < 16; position++){
