@@ -12,6 +12,13 @@ sudo apt-get update / 슈퍼 권한 받아서 /apt-get을 / update한다.
 sudo apt install vim -y << 슈퍼권한 받아와서 / 패키지를 다운 받는다. / vim 패키지를 / -y : 자동으로 yes 처리 
 vim test.py << 파일 생성 혹은 열람 / 없을 경우에는 test.py파일을 만든다. 
 
+sudo apt update 
+sudo apt upgrade
+
+sudo apt-get install fonts-unfonts-core -y
+sudo apt-get install ibus ibus-hangul -y
+sudo reboot
+
 임베디드 프로그램은 서로 상호호환이 안되는 경우가 많아서 설치시에 문제가 많으니 시간이 오래걸린다.
 
 다음 시간 >> 텔레그램 사용
