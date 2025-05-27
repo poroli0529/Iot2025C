@@ -54,7 +54,7 @@ client.write_points(data)
 
 이 코드를 저장하고 실행한 후 !!
 그라파나 사이트에 접속해서 influxDB를 설정해주고 테스트를 한다.
-
+그라파나는 장비로부터 받은 데이터를 시각화해주는 사이트이다.
 [ 코드 전문 ]
 import time
 import serial
